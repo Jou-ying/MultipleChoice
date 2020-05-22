@@ -9,6 +9,7 @@
 import UIKit
 
 
+
 class ViewController: UIViewController {
     
     
@@ -43,7 +44,7 @@ class ViewController: UIViewController {
     var currentIndex = 0
     
     //
-    var questionQuantity = 5
+    var questionQuantity = 10
     // 分數
     var score = 0
     
@@ -113,6 +114,8 @@ class ViewController: UIViewController {
         
         }
         
+        self.questionNumberLabel.text = "題目\(currentIndex+1)"
+        
     }
     
     
@@ -121,6 +124,7 @@ class ViewController: UIViewController {
     // MARK: - IBAction
     @IBAction func didTapStartButton(_ sender: UIButton) {
         
+        // 把題目陣列預設為空，重新塞題目進去
         self.questions = []
         self.nowQuestions = []
         
@@ -159,6 +163,7 @@ class ViewController: UIViewController {
         self.currentIndex = 0
         self.startView.isHidden = true
         self.nextButton.isHidden = false
+
     
         self.showQuestion()
         
@@ -264,8 +269,44 @@ class ViewController: UIViewController {
     
         // 判斷是否為最後一題
         if self.currentIndex == self.questionQuantity - 1  {
-        
-            let alert = UIAlertController(title: "總分：\(score)", message: "", preferredStyle: .alert)
+            
+            var best = 0
+            
+            if UserDefaults.standard.object(forKey: "BEST") != nil {
+                
+                best = UserDefaults.standard.object(forKey: "BEST") as! Int
+                
+            }
+            
+            var alert = UIAlertController()
+            
+            if best > 0 {
+                
+                // 判斷此次得分有沒有比最高紀錄多，並儲存最高的分數在手機
+                if best > self.score {
+
+                     alert = UIAlertController(title: "上次最高紀錄： \(best) \n 這回合總分：\(score) ", message: "", preferredStyle: .alert)
+                    
+                    UserDefaults.standard.set(best, forKey: "BEST")
+                    UserDefaults.standard.synchronize()
+                    
+                }else {
+
+                     alert = UIAlertController(title: "上次最高紀錄： \(best) \n 這回合總分：\(score) \n 恭喜你！成為最高紀錄者！ ", message: "", preferredStyle: .alert)
+                    
+                    UserDefaults.standard.set(self.score, forKey: "BEST")
+                    UserDefaults.standard.synchronize()
+                }
+           
+            }else {
+                
+                alert = UIAlertController(title: "這回合總分：\(score)", message: "", preferredStyle: .alert)
+
+                // 儲存最高的分數在手機
+                UserDefaults.standard.set(self.score, forKey: "BEST")
+                UserDefaults.standard.synchronize()
+            }
+            
     
             let action = UIAlertAction(title: "再試一次", style: .default) { (_) in
             
@@ -276,6 +317,9 @@ class ViewController: UIViewController {
             alert.addAction(action)
         
             self.show(alert, sender: nil)
+            
+            
+            
         }
     }
     
