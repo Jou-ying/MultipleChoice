@@ -13,6 +13,7 @@
 		CD8985BD24764882009C09DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8985BB24764882009C09DF /* Main.storyboard */; };
 		CD8985BF24764884009C09DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD8985BE24764884009C09DF /* Assets.xcassets */; };
 		CD8985C224764884009C09DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8985C024764884009C09DF /* LaunchScreen.storyboard */; };
+		CD8985CA24764942009C09DF /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8985C924764942009C09DF /* Questions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CD8985BE24764884009C09DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD8985C124764884009C09DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD8985C324764884009C09DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD8985C924764942009C09DF /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				CD8985BE24764884009C09DF /* Assets.xcassets */,
 				CD8985C024764884009C09DF /* LaunchScreen.storyboard */,
 				CD8985C324764884009C09DF /* Info.plist */,
+				CD8985C924764942009C09DF /* Questions.swift */,
 			);
 			path = MultipleChoice;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD8985BA24764882009C09DF /* ViewController.swift in Sources */,
+				CD8985CA24764942009C09DF /* Questions.swift in Sources */,
 				CD8985B624764882009C09DF /* AppDelegate.swift in Sources */,
 				CD8985B824764882009C09DF /* SceneDelegate.swift in Sources */,
 			);
@@ -285,6 +289,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C5YW8VGGVS;
 				INFOPLIST_FILE = MultipleChoice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +307,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C5YW8VGGVS;
 				INFOPLIST_FILE = MultipleChoice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
